@@ -18,23 +18,21 @@ class Aquarium extends Component {
 
   render () {
     return (
-      <>
-        <Table className="mt-5" bordered>
-          <tbody>
-            {
-              this.props.inputArray.map((ia, i) =>
-                <tr key={i}>
-                  {
-                    ia.map((a, j) =>
-                      <td className={'p-4 ' + a} key={j}></td>
-                    )
-                  }
-                </tr>
-              )
-            }
-          </tbody>
-        </Table>
-      </>
+      <Table className="mt-5" bordered>
+        <tbody>
+          {
+            this.props.inputArray.map((ia, i) =>
+              <tr key={i}>
+                {
+                  ia.map((a, j) =>
+                    <td className={'p-4 ' + a} key={j}></td>
+                  )
+                }
+              </tr>
+            )
+          }
+        </tbody>
+      </Table>
     )
   }
 }

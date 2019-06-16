@@ -11,7 +11,7 @@ class AquariumInput extends Component {
       inputString: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSave = this.handleSave.bind(this)
     this.breakRightSide = this.breakRightSide.bind(this)
   }
 
@@ -20,7 +20,7 @@ class AquariumInput extends Component {
     this.setState({ [name]: value })
   }
 
-  handleClick(e) {
+  handleSave(e) {
     e.preventDefault()
     this.props.setInput(this.state.inputString)
     this.props.getInputArray()
@@ -46,7 +46,7 @@ class AquariumInput extends Component {
                 onChange={this.handleChange}
               />
             </FormGroup>
-            <Button className="mr-2" onClick={this.handleClick}>Save</Button>
+            <Button className="mr-2" onClick={this.handleSave}>Save</Button>
             <Button onClick={this.breakRightSide}>Break right</Button>
           </Form>
         </Col>
