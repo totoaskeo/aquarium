@@ -1,0 +1,2 @@
+export const SET_INPUT_STRING = 'SET_INPUT_STRING'
+export const GET_INPUT_ARRAY = 'GET_INPUT_ARRAY'
