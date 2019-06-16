@@ -12,6 +12,7 @@ class AquariumInput extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.breakRightSide = this.breakRightSide.bind(this)
   }
 
   handleChange(e) {
@@ -25,10 +26,15 @@ class AquariumInput extends Component {
     this.props.getInputArray()
   }
 
+  breakRightSide(e) {
+    e.preventDefault()
+    this.props.breakRightSide()
+  }
+
   render() {
     return (
       <Row className="mt-4">
-        <Col xs={{ size: 8, offset: 2 }}>
+        <Col xs={{ size: 10, offset: 1 }}>
           <Form inline>
             <FormGroup>
               <Label className="mr-2">Input string</Label>
@@ -40,7 +46,8 @@ class AquariumInput extends Component {
                 onChange={this.handleChange}
               />
             </FormGroup>
-            <Button onClick={this.handleClick}>Save</Button>
+            <Button className="mr-2" onClick={this.handleClick}>Save</Button>
+            <Button onClick={this.breakRightSide}>Break right</Button>
           </Form>
         </Col>
       </Row>
@@ -49,6 +56,6 @@ class AquariumInput extends Component {
 }
 
 export default connect(
-  null,
+  state => ({ inputArray: state.inputArray }),
   dispatch => bindActionCreators(actionCreators, dispatch)
 )(AquariumInput)

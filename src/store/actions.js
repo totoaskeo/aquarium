@@ -9,8 +9,20 @@ export default {
     const inputString = getState().inputString
     const inputArray = inputStringToArray(inputString)
     dispatch({ type: actionTypes.GET_INPUT_ARRAY, inputArray })
+  },
+  breakRightSide: () => (dispatch, getState) => {
+    const array = getState().inputArray
+    for (let i = array.length - 1; i >= 0; i--) {
+      let j = array[i].length - 1
+      while (array[i][j] === constants.WATER) {
+        array[i][j] = null
+        j--
+      }
+    }
+    dispatch({ type: actionTypes.BREAK_RIGHT_SIDE, array })
   }
 }
+
 
 function inputStringToArray(str) {
   const trimmedString = str.replace(/ /g, '')
@@ -31,6 +43,10 @@ function inputStringToArray(str) {
     }
     resArr.push(newRow)
   }
-  resArr = resArr[0].map((col, i) => resArr.map(row => row[i]))
-  return resArr
+  
+  return transponeArray(resArr)
+}
+
+function transponeArray(array) {
+  return array[0].map((col, i) => array.map(row => row[i]))
 }

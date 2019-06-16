@@ -8,9 +8,7 @@ import './Aquarium.css'
 class Aquarium extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      inputArray: this.props.inputArray
-    }
+
     this.handleClick = this.handleClick.bind(this)
   }
 
